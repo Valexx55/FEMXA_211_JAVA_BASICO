@@ -12,6 +12,15 @@ public class NotaAprobada {
 	
 	private static  boolean aprobado (int n)
 	{
+		/**
+		 * esto es equivalente a 
+		 * boolean bdev = false;
+		 * 	if (n>=5) 
+		 * 		{bdev = true;}
+		 * 	else {bdev = false;}
+		 * return bdev;
+		 * 
+		 */
 		return (n>=5);
 	}
 
@@ -28,10 +37,46 @@ public class NotaAprobada {
 		
 		return num_leido;
 	}
+	private static void imprimeNotaAlfabetica (int nota_numerica)
+	{
+		switch (nota_numerica) {
+		case 10: 
+				System.out.println("MATRÍCULA DE HONOR");
+			
+			break;
+		case 9: 
+			System.out.println("SOBRE");
+		
+		break;
+		
+		case 8:
+		case 7:
+			System.out.println("NOTABLE");
+		
+		break;
+		
+		case 6:
+			System.out.println("BIEN");
+		
+		//break;
+		
+		case 5:
+			System.out.println("SUFICIENTE");
+		
+		break;
+		
+			
+		default:
+			System.out.println("INSUFICIENTE");
+			break;
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		int nota = 0;
-		
 		
 		do
 		{
@@ -39,6 +84,6 @@ public class NotaAprobada {
 		} while (!aprobado(nota));
 		
 		System.out.println("APROBASTE");
-		
+		imprimeNotaAlfabetica(nota);
 	}
 }
