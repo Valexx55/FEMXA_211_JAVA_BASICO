@@ -2,6 +2,15 @@ package edu.femxa.val;
 
 import java.util.Scanner;
 
+
+/**
+ * Haced un programa que pida los datos de 3 
+ * persona y me diga el nombre la de persona 
+ * mayor
+ * 
+ * @author Administrador
+ *
+ */
 public class PersonaMayor {
 
 	
@@ -39,7 +48,7 @@ public static void main(String[] args) {
 		int edadMayor = 0;
 		
 		Persona personaMayor = new Persona();
-		Persona p = new Persona();
+		//Persona p = new Persona();
 
 		for(int i=0; i < NUMERO_PERSONAS; i++ ){
 			System.out.print("Introduzca su nombre: ");

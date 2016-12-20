@@ -11,7 +11,8 @@ public class Persona {
 		this.edad = edad;
 	}
 	public String getNombre() {
-		return nombre;
+		String nombre = null;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -22,8 +23,17 @@ public class Persona {
 		this.nombre = nombre;
 	}
 	
-	public Persona ()
+	@Override
+	public String toString() {
+		return this.nombre + this.edad;
+		}
+	
+	
+		public Persona ()
 	{
+			nombre = "Alberto";
+			edad = 23;			
+			System.out.println(this.toString());
 		//me crea una persona vacía
 	}
 	
