@@ -32,7 +32,9 @@ public class EntradaSalida {
 	
 	public static void mostrarIMC (double imc)
 	{
-		System.out.println("SU IMC ES " + imc);
+		
+		TipoIMC tipo = TipoIMC.traduceIMC(imc);
+		System.out.println("SU IMC ES " + imc +" que es " + tipo);
 	}
 	
 }
