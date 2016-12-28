@@ -9,6 +9,15 @@ public class InsertarOrdenado {
 		
 		//TODO haced el cuerpo del método para obtener
 		//el resultado esperado
+		//mientras no llegué al final
+		//y no encuentro un numero mayor
+		//incremento el contador
+		
+		while ((pos<ae.length)&&(ae[pos]<n))
+		{
+			pos++;
+		}
+		
 		
 		return pos;
 	}
@@ -22,7 +31,7 @@ public class InsertarOrdenado {
 		ae[3] = 6;
 		ae[4] = 7;
 		
-		int n_usuario = 3;
+		int n_usuario = 8;
 		
 		int pos = obtenerPos(ae, n_usuario);
 		
