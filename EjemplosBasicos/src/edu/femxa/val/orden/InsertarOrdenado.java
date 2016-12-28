@@ -1,42 +1,70 @@
 package edu.femxa.val.orden;
 
+import java.util.Scanner;
+
 public class InsertarOrdenado {
 	
-	
-	public static int obtenerPos (int [] ae, int n)
+	public static void desplazarDesdeHasta (int ae [], int desde, int hasta)
 	{
-		int pos = 0;
+		int pos_final = hasta;
 		
-		//TODO haced el cuerpo del método para obtener
-		//el resultado esperado
-		//mientras no llegué al final
-		//y no encuentro un numero mayor
-		//incremento el contador
-		
-		while ((pos<ae.length)&&(ae[pos]<n))
+		for (int pos = pos_final+1; pos > desde; pos--) 
 		{
-			pos++;
+			if (pos < ae.length)
+			{
+				ae [pos] = ae [pos-1];
+			}
 		}
 		
+	}
+	
+	public static void mostrarArray (int ae [])
+	{
+		for (int i = 0; i < ae.length; i++) {
+			System.out.print(ae[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	public static int obtenerPosicion (int [] ae, int n, int limite)
+	{
+		int pos = 0;
+				
+			while ((pos<limite)&&(ae[pos]<n))
+			{
+				pos++;
+			}
 		
 		return pos;
 	}
 	
+	public static int pedirNumero()
+	{
+		int n_pedido = 0;
+		Scanner scanner = null;
+			
+			scanner = new Scanner(System.in);
+			n_pedido = scanner.nextInt();
+			
+		return n_pedido;
+	}
+	
 	public static void main(String[] args) {
-		int ae[] = new int [5];
+
+		int ae[] = new int [10];
+		int n_usuario = 0; 
+		int pos = 0;
 		
-		ae[0] = 1;
-		ae[1] = 2;
-		ae[2] = 5;
-		ae[3] = 6;
-		ae[4] = 7;
-		
-		int n_usuario = 8;
-		
-		int pos = obtenerPos(ae, n_usuario);
-		
-		System.out.println("El numero " + n_usuario + " debe ir en " + pos);
-		
+		for (int i = 0; i < ae.length; i++) 
+		{
+			System.out.println("Dame nº " + i);
+			n_usuario = pedirNumero();
+			pos = obtenerPosicion(ae, n_usuario, i);
+			
+			desplazarDesdeHasta(ae, pos, i);
+			ae[pos] = n_usuario;
+		}
+		mostrarArray(ae);
 	}
 
 }
