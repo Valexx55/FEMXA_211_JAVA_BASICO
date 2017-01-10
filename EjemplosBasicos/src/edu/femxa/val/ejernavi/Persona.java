@@ -13,8 +13,12 @@ public class Persona {
 		System.out.println("Nombre = " + this.nombre);
 	}
 	
+	public Persona (){}
+	
 	public Persona(String nombre2, int edad2) {
 		// TODO Auto-generated constructor stub
+		this.edad = edad2;
+		this.nombre = nombre2;
 	}
 
 	public int getEdad() {
