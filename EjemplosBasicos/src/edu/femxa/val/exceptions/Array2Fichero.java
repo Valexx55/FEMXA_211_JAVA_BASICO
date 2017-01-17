@@ -10,6 +10,27 @@ import java.io.IOException;
 
 public class Array2Fichero {
 	
+	
+	private static int contarLineas (File f) throws IOException
+	{
+		int nlineas = 0;
+		FileReader fr = null;
+		BufferedReader br = null;
+		String cadaux = null;
+		
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			
+			while (br.readLine()!=null)
+			{
+				nlineas = nlineas + 1;
+			}
+			
+			br.close();
+			fr.close();
+		
+		return nlineas;
+	}
 	/**
 	 * Leer el fichero file y pasad cada línea
 	 * del fichero a una posición de lista_cadena
@@ -24,7 +45,8 @@ public class Array2Fichero {
 				{
 					fr = new FileReader(file);
 					br = new BufferedReader(fr);
-					lista_cadena = new String[5];
+					int nlineas = contarLineas(file);
+					lista_cadena = new String[nlineas];
 					int pos = 0;
 					
 					String linea =br.readLine();
