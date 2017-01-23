@@ -3,6 +3,7 @@ package edu.femxa.val.basededatos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BaseDatosUpdate {
@@ -17,12 +18,10 @@ public class BaseDatosUpdate {
 	}
 	
 	
-	private static void liberarRecursos (Statement st, ResultSet rs, Connection conn)
+	private static void liberarRecursos (Statement st)
 	{
 		
-		if (rs != null) 	{ try { rs.close(); } catch (Exception e2) { e2.printStackTrace(); }}
 		if (st != null)	{ try {	st.close(); } catch (Exception e2) { e2.printStackTrace(); }}
-		if (conn != null) 	{ try { conn.close(); } catch (Exception e3) { e3.printStackTrace(); }}
 	  	
 		
 	}
@@ -38,7 +37,6 @@ public class BaseDatosUpdate {
 	private static void subeSueldo (Connection conn)
 	{
 		Statement st = null;
-		ResultSet rs = null;
 		
 		try
 		{
@@ -51,7 +49,7 @@ public class BaseDatosUpdate {
 		}
 		finally 
 		{
-			liberarRecursos(st, rs);
+			liberarRecursos(st);
 			
 		}
 	}
@@ -96,23 +94,21 @@ public class BaseDatosUpdate {
 	}
 	
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws SQLException {
 		Connection conn = null;
-		
 		try{
-			
 			DriverManager.registerDriver (new oracle.jdbc.driver.OracleDriver());
 			conn = DriverManager.getConnection ("jdbc:oracle:thin:@127.0.0.1:1521:xe", "HR", "password");
 		    conn.setAutoCommit(false);
 			consultaEmpleados(conn);
 		    subeSueldo(conn);
 		    consultaEmpleados(conn);
-		    conn.rollback();
+		    conn.commit();
 		    
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error ejecutando bd");
+			conn.rollback();
 			
 		} finally {
 			liberarRecursos(conn);
