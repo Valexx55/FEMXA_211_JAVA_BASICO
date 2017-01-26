@@ -5,16 +5,14 @@ public class EmployeesDTO {
 	private int idEmpleado;
 	private String firstName;
 	private int salary;
-	private int dpto;
 	
 	
 	
-	public EmployeesDTO(int idEmpleado, String firstName, int salary, int dpto) {
+	public EmployeesDTO(int idEmpleado, String firstName, int salary) {
 		
 		this.idEmpleado = idEmpleado;
 		this.firstName = firstName;
 		this.salary = salary;
-		this.dpto = dpto;
 	}
 	
 	
@@ -36,15 +34,6 @@ public class EmployeesDTO {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public int getDpto() {
-		return dpto;
-	}
-	public void setDpto(int dpto) {
-		this.dpto = dpto;
-	}
-	
-	
-	
 	
 
 }

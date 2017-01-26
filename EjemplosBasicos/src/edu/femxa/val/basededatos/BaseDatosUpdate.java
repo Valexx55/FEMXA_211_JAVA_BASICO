@@ -96,7 +96,10 @@ public class BaseDatosUpdate {
 	
 	public static void main(String[] args) throws SQLException {
 		Connection conn = null;
-		try{
+		try
+			{
+			
+			
 			DriverManager.registerDriver (new oracle.jdbc.driver.OracleDriver());
 			conn = DriverManager.getConnection ("jdbc:oracle:thin:@127.0.0.1:1521:xe", "HR", "password");
 		    conn.setAutoCommit(false);
@@ -116,3 +119,5 @@ public class BaseDatosUpdate {
 	}
 
 }
+
+
