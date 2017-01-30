@@ -6,8 +6,13 @@ import java.util.Properties;
 
 public class EjemploPropiedades 
 {
-	public static void main(String[] args) throws Throwable 
+	public static void main(String[] pepi) throws Throwable 
 	{
+		
+		System.out.println(pepi[0]);
+		System.out.println(pepi[1]);
+		
+		
 		Properties fichero_propiedaes = null;
 		
 		fichero_propiedaes = new Properties();
