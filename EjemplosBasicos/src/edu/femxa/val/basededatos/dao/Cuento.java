@@ -40,6 +40,10 @@ public class Cuento {
 				parte_cuerpo = propiedades.getProperty(CLAVE_F_CUERPO);
 				parte_final	= propiedades.getProperty(CLAVE_F_FINAL);
 				
+				System.out.println(parte_principio);
+				System.out.println(parte_cuerpo);
+				System.out.println(parte_final);
+				
 				bw.write(parte_principio+"\n");
 				bw.write(parte_cuerpo+"\n");
 				bw.write(parte_final);
