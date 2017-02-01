@@ -10,6 +10,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+//C:\Program Files\Java\jdk1.8.0_45\bin\javadoc.exe
+
 public class MainSAX {
 	
 	public static void main(String[] args) throws Throwable {
@@ -24,7 +26,7 @@ public class MainSAX {
 		
 		reader.parse
 		(new InputSource
-				(new FileInputStream("libro.xml")));
+				(new FileInputStream("libros.xml")));
 	
 		
 		
