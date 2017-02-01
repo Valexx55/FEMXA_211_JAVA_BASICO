@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class HTTPMain {
 	
@@ -23,7 +27,12 @@ public class HTTPMain {
 
 	   public static void main(String[] args) throws Exception
 	   {
-	     System.out.println(getJSON("http://elrecadero-ebtm.rhcloud.com/ObtenerListaRecados"));
+	     String joson = getJSON("http://elrecadero-ebtm.rhcloud.com/ObtenerListaRecados");
+	     Gson gson = new Gson();
+	     List<Recado> l = gson.fromJson(joson, new TypeToken<List<Recado>>(){}.getType());
+	     Recado r = l.get(1);
+	     System.out.println(r.toString());
 	   }
+	   
 
 }
