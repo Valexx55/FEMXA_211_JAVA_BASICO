@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -29,9 +30,28 @@ public class HTTPMain {
 	   {
 	     String joson = getJSON("http://elrecadero-ebtm.rhcloud.com/ObtenerListaRecados");
 	     Gson gson = new Gson();
-	     List<Recado> l = gson.fromJson(joson, new TypeToken<List<Recado>>(){}.getType());
-	     Recado r = l.get(1);
-	     System.out.println(r.toString());
+	     List<Recado> l = gson.fromJson(joson,new TypeToken<List<Recado>>(){}.getType());
+	     
+	     int pos = (int)(100*Math.random())+1;
+	     for (Recado r : l)
+	     {
+	    	 r.setN_recao(pos);
+	    	 pos = (int)(100*Math.random())+1;
+	     }
+	     
+	     for (Recado r : l)
+	     {
+	    	 System.out.println(r.toString());
+	     }
+	     
+	     Collections.sort(l);
+	     System.out.println("--LISTA ORDENADA---");
+	     
+	     for (Recado r : l)
+	     {
+	    	 System.out.println(r.toString());
+	     }
+	     
 	   }
 	   
 

@@ -12,7 +12,7 @@ import java.util.Date;
  * y hora máxima realización
  */
 
-public class Recado {
+public class Recado implements Comparable<Recado>{
 	
 	private Date fecha_hora;
 	private String nombre_cliente;
@@ -21,8 +21,20 @@ public class Recado {
 	private String direccion_entrega;
 	private String descripcion;
 	private Date fecha_hora_maxima;
+	private int n_recao;
 	
 	
+	
+	public int getN_recao() {
+		return n_recao;
+	}
+
+
+	public void setN_recao(int n_recao) {
+		this.n_recao = n_recao;
+	}
+
+
 	public Recado ()
 	{
 		//TODO
@@ -42,10 +54,30 @@ public class Recado {
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return this.telefono;
+	public int compareTo(Recado r) {
+		/*if (this.n_recao > r.n_recao) 
+			return 1;
+		else if (this.n_recao < r.n_recao)
+			return -1;
+		else return 0;*/
+		
+		int n = this.telefono.compareTo(r.telefono);
+		return n;
 	}
+	
+	
+	@Override
+	public String toString() 
+	{
+		String str_recado = null;
+			
+			str_recado = this.getN_recao()+ " "+this.getNombre_cliente() + " " + this.telefono + " "+ this.getDescripcion(); 
+			
+		return str_recado;
+	}
+	
+	
+	
 	public Date getFecha_hora() {
 		return fecha_hora;
 	}
@@ -88,6 +120,12 @@ public class Recado {
 	public void setFecha_hora_maxima(Date fecha_hora_maxima) {
 		this.fecha_hora_maxima = fecha_hora_maxima;
 	}
+
+
+	
+
+
+	
 	
 	
 
